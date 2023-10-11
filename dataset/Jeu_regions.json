@@ -1,0 +1,29 @@
+{
+	"name": "Jeu_regions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "cc_filosofi_2019_REG.csv",
+				"container": "clairmy14conteneur"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CODGEO;NBMENFISC19;NBPERSMENFISC19;MED19;PIMP19;TP6019;TP60AGE119;TP60AGE219;TP60AGE319;TP60AGE419;TP60AGE519;TP60AGE619;TP60TOL119;TP60TOL219;PACT19;PTSA19;PCHO19;PBEN19;PPEN19;PPAT19;PPSOC19;PPFAM19;PPMINI19;PPLOGT19;PIMPOT19;D119;D919;RD19",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

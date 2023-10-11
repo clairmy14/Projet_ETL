@@ -1,0 +1,20 @@
+{
+	"name": "Jeu_licences",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "Jeu_licences",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> Jeu_licences",
+					"dataset": {
+						"referenceName": "Jeu_licences",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared Jeu_licences = let AdfDoc = AzureStorage.BlobContents(\"https://clairmy14stockage.blob.core.windows.net/clairmy14conteneur/lic-data-2019.csv\"),Csv = Csv.Document(AdfDoc, [Delimiter = \";\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]) in  PromotedHeaders;\r\nshared UserQuery = let Source = #\"Jeu_licences\" in Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}

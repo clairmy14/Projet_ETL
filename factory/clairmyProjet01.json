@@ -1,0 +1,9 @@
+{
+	"name": "clairmyProjet01",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "468bcc0f-b83b-4d18-ba20-8af111ba00cd",
+		"tenantId": "cf68cf6c-f30d-4db4-a500-695798444f54"
+	}
+}

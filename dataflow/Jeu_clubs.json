@@ -1,0 +1,20 @@
+{
+	"name": "Jeu_clubs",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "Jeu_clubs",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> Jeu_clubs",
+					"dataset": {
+						"referenceName": "Jeu_clubs",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared Jeu_clubs = let AdfDoc = AzureStorage.BlobContents(\"https://clairmy14stockage.blob.core.windows.net/clairmy14conteneur/clubs-data-2019.csv\"),Csv = Csv.Document(AdfDoc, [Delimiter = \";\", Encoding = TextEncoding.Windows, QuoteStyle = QuoteStyle.Csv]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]) in  PromotedHeaders;\r\nshared UserQuery = let Source = #\"Jeu_clubs\" in Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}

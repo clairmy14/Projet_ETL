@@ -1,0 +1,20 @@
+{
+	"name": "Jeu_regions",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "Jeu_regions",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> Jeu_regions",
+					"dataset": {
+						"referenceName": "Jeu_regions",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared Jeu_regions = let AdfDoc = AzureStorage.BlobContents(\"https://clairmy14stockage.blob.core.windows.net/clairmy14conteneur/cc_filosofi_2019_REG.csv\"),Csv = Csv.Document(AdfDoc, [Delimiter = \";\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]) in  PromotedHeaders;\r\nshared UserQuery = let Source = #\"Jeu_regions\" in Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}
